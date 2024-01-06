@@ -1,0 +1,46 @@
+
+
+
+
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+/* For WebKit (Chrome, Safari) */
+/* You can customize these styles according to your design */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #bebebe;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #c3c2c2;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* For Microsoft Edge */
+/* You can customize these styles according to your design */
+::-ms-scrollbar {
+  width: 10px;
+}
+
+::-ms-scrollbar-thumb {
+  background-color: #c5c5c5;
+  border-radius: 6px;
+}
+
+::-ms-scrollbar-thumb:hover {
+  background-color: #bebebe;
+}
+
+::-ms-scrollbar-track {
+  background-color: #f1f1f1;
+}
