@@ -19,14 +19,17 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
-        run: npm install -g yarn
+        run: npm install -g npm
 
       - name: Install dependencies and Build static generation
         run: |
-          yarn
+          npm
           npm run build
         working-directory: .
 
+      - name: ESLint Check
+        run: npm run lint
+        continue-on-error: true
 
       - name: Build and Deploy Firebase Function
         run: |
