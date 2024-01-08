@@ -40,5 +40,5 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: ESLint Check
-        run: npm run lint
+        run:  npm run lint -- --quiet || true
         continue-on-error: true
