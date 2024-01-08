@@ -1,4 +1,4 @@
-import AuthHeader from "../component/Header/authHeader";
+
 
 const AuthLayout = ({ children }) => {
     return (

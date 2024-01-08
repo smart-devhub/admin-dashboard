@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './allCommon.css'
 
 const Modal = ({ isOpen, onClose, children,noclose }) => {
