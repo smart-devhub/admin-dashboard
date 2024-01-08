@@ -4,7 +4,9 @@ import Register from "../pages/auth/Register";
 import Login from "../pages/auth/login";
 import Calender from "../pages/calender";
 import Dashboard from "../pages/dashboard";
+import MapView from "../pages/mapview";
 import Products from "../pages/product/product";
+import Profile from "../pages/profile";
 import AllUsers from "../pages/users/alluser";
 
 export const routesConfig = [
@@ -34,8 +36,18 @@ export const routesConfig = [
       layout: DashboardLayout,
     },
     {
+      path: '/mapview',
+      component: MapView,
+      layout: DashboardLayout,
+    },
+    {
       path: '/calender',
       component: Calender,
+      layout: DashboardLayout,
+    },
+    {
+      path: '/profile',
+      component: Profile,
       layout: DashboardLayout,
     },
   ];
