@@ -8,7 +8,7 @@ const Bigsidebar = () => {
     const navigate = useNavigate()
 
     const getcolor = (name) => {
-        if (window.location.pathname == name) {
+        if (window.location.pathname === name) {
             return "#000 !important"
         }
 

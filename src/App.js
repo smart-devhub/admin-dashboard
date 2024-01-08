@@ -1,5 +1,5 @@
 // src/App.js
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css'
