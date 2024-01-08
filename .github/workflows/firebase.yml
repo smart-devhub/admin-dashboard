@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies and Build static generation
         run: |
-          npm
+          yarn
           npm run build
         working-directory: .
 
