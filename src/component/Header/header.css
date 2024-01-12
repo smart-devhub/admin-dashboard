@@ -1,7 +1,20 @@
+
+:root {
+  
+    --background-color2:#f5f5f5;
+    --text-color: #333;
+  }
+  
+  [data-dark-mode="true"] {
+    --background-color: #333;
+    --background-color2:#333;
+    --text-color: #fff;
+  }
+  
 .header{
     width: 100%;
     min-height: 70px;
-    background: #f5f5f5;
+    background: var(--background-color2) !important;
    
     position: sticky;
     top: 0;

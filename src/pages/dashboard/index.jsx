@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import Modal from '../../component/common/Modal'
 
@@ -6,10 +6,12 @@ import Paper from '../../component/common/Paper'
 import ForcastChart from '../../component/charts/forcast'
 import BubbleChart from '../../component/charts/bubblecharts'
 import DonutChart from '../../component/charts/donutchart'
+import { ModeContext } from '../../context/context'
 
 
 const Dashboard = () => {
   const [isModal, setIsModal] = React.useState(false)
+  const {isDarkMode}=useContext(ModeContext)
 
   return (
     <div>
@@ -20,25 +22,25 @@ const Dashboard = () => {
       </div>
 
       <div className='grid grid-cols-3 gap-3 py-6'>
-        <div className='col-span-1 bg-white rounded-md'>
+        <div className={`col-span-1 ${isDarkMode ? "bg-[#333]" :"bg-white"} rounded-md`}>
           <ForcastChart />
         </div>
-        <div className='col-span-1 bg-white rounded-md'>
+        <div className={`col-span-1 ${isDarkMode ? "bg-[#333]" :"bg-white"} rounded-md`}>
           <BubbleChart />
         </div>
-        <div className='col-span-1 bg-white rounded-md'>
+        <div className={`col-span-1 ${isDarkMode ? "bg-[#333]" :"bg-white"} rounded-md`}>
           <DonutChart />
         </div>
       </div>
       <div className='grid grid-cols-3 gap-3 py-6'>
-        <div className='col-span-1 bg-white rounded-md'>
+        <div className={`col-span-1 ${isDarkMode ? "bg-[#333]" :"bg-white"} rounded-md`}>
           
           <BubbleChart />
         </div>
-        <div className='col-span-1 bg-white rounded-md'>
+        <div className={`col-span-1 ${isDarkMode ? "bg-[#333]" :"bg-white"} rounded-md`}>
         <ForcastChart />
         </div>
-        <div className='col-span-1 bg-white rounded-md'>
+        <div className={`col-span-1 ${isDarkMode ? "bg-[#333]" :"bg-white"} rounded-md`}>
           <DonutChart />
         </div>
       </div>
