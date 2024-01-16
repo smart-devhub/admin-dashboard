@@ -20,11 +20,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
         env:
           NODE_OPTIONS: --max-old-space-size=4196    # Set the desired memory size in megabytes
-      - run: npm install -g yarn
-      - name: yarn install, build and test
+    
+      - name: npm install, build and test
         run: |
           yarn
-          npm run build:prod
+          npm run build
       - name: Archive Build
         uses: actions/upload-artifact@v2
         with:
