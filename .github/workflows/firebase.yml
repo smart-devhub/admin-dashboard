@@ -1,43 +1,50 @@
-name: Deploy to Firebase
+name: Firebase CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    env:
-      CI: false
+    runs-on: macos-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 19.3.0
-        check-latest: true
-
-    - name: Install dependencies
-      run: npm install -g npm@9.2.0
-
-    - name: Install project dependencies
-      run: npm install
-
-    - name: Build
-      run: npm run build
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+        env:
+          NODE_OPTIONS: --max-old-space-size=4196    # Set the desired memory size in megabytes
+      - run: npm install -g yarn
+      - name: yarn install, build and test
+        run: |
+          yarn
+          npm run build
+      - name: Archive Build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build
 
   deploy:
-    runs-on: ubuntu-latest
+    name: Deploy
     needs: build
-
+    runs-on: ubuntu-latest
     steps:
-    - name: Deploy to Firebase
-      uses: w9jds/firebase-action@v1
-      with:
-        args: deploy --token="${{ secrets.FIREBASE_TOKEN }}"
-      env:
-        CI: false  # Disable CI environment variable to bypass ESLint checks temporarily
-        FIREBASE_CLI_DEPLOY: 1
+      - uses: actions/checkout@v2
+      - name: Download Build
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy -P production
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
