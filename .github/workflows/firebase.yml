@@ -35,7 +35,7 @@ jobs:
 
     steps:
     - name: Deploy to Firebase
-      uses: w9jds/firebase-action@v2
+      uses: w9jds/firebase-action@v1
       with:
         args: deploy --token="${{ secrets.FIREBASE_TOKEN }}"
       env:
