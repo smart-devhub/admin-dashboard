@@ -4,9 +4,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import './sidebar.css'
 import { menuItems } from './menuitems'
 import { ModeContext } from '../../context/context'
+import { useWindowSize } from 'react-use'
 
 const Bigsidebar = () => {
     const navigate = useNavigate()
+    const {width}=useWindowSize()
     const {toggleDrawer}=useContext(ModeContext)
     const getcolor = (name) => {
         if (window.location.pathname === name) {
@@ -20,7 +22,10 @@ const Bigsidebar = () => {
             navigate("/auth/login")
         }
         navigate(x.path)
-        toggleDrawer()
+        if(width<640){
+            toggleDrawer()
+        }
+       
     }
 
     return (
