@@ -15,13 +15,14 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className='grid grid-cols-3 gap-2'>
-        <Paper value={500} width={"100%"} height={200} onClick={() => setIsModal(prev => !prev)} />
-        <Paper value={8900} width={"100%"} height={200} />
-        <Paper value={100} width={"100%"} height={200} />
+      <div className='grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1  gap-2'>
+        <Paper value={500} width={"100%"} height={80} text="Total Wins" onClick={() => setIsModal(prev => !prev)} />
+        <Paper value={"$890"} width={"100%"} height={80} text="Value of Live Proposals" />
+        <Paper value={100} width={"100%"} height={80} text="View by Clients" />
+        <Paper value={"$34"} width={"100%"} height={80} text="Value of Client Viewed Proposals" />
       </div>
 
-      <div className='grid grid-cols-3 gap-3 py-6'>
+      <div className='grid lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-3 py-6'>
         <div className={`col-span-1 ${isDarkMode ? "bg-[#333]" :"bg-white"} rounded-md`}>
           <ForcastChart />
         </div>
@@ -32,7 +33,7 @@ const Dashboard = () => {
           <DonutChart />
         </div>
       </div>
-      <div className='grid grid-cols-3 gap-3 py-6'>
+      <div className='grid lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-3 py-6'>
         <div className={`col-span-1 ${isDarkMode ? "bg-[#333]" :"bg-white"} rounded-md`}>
           
           <BubbleChart />

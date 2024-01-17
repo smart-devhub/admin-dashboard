@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import './sidebar.css'
 import { menuItems } from './menuitems'
+import { ModeContext } from '../../context/context'
 
 const Bigsidebar = () => {
     const navigate = useNavigate()
-
+    const {toggleDrawer}=useContext(ModeContext)
     const getcolor = (name) => {
         if (window.location.pathname === name) {
             return "#000 !important"
         }
-
 
     }
 
@@ -20,6 +20,7 @@ const Bigsidebar = () => {
             navigate("/auth/login")
         }
         navigate(x.path)
+        toggleDrawer()
     }
 
     return (
