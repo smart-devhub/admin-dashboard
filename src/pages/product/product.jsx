@@ -22,9 +22,9 @@ const Products = () => {
     })
   }, [])
   return (
-    <div className='grid grid-cols-3 gap-2'>
+    <div className='grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1  gap-4'>
       {loader &&
-        <div className='col-span-3'>
+        <div className='xl:col-span-3 lg:col-span-3 md:col-span-2 sm:col-span-1 xs:col-span-1'>
           <Loader />
         </div>}
       {!loader && productdata && productdata.length > 0 && productdata.map((x) => (

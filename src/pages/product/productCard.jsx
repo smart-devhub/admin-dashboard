@@ -15,14 +15,14 @@ const ProductCard = ({ product,key }) => {
   return (
     <div
       key={key}
-      className={`max-w-sm mx-auto overflow-hidden shadow-lg transform ${
+      className={`max-w-sm mx-auto rounded-sm overflow-hidden h-[350px] shadow-lg transform ${
         hovered ? 'scale-105' : ''
       } transition-transform duration-300 ease-in-out`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {product.images && <img
-        className="w-full h-48 object-cover object-center"
+        className="w-full h-[40%] object-cover object-center"
         src={product.images[0]}
         alt={product.title}
       />}

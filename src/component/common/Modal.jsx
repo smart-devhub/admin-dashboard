@@ -1,7 +1,7 @@
 import React from 'react';
 import './allCommon.css'
 
-const Modal = ({ isOpen, onClose, children,noclose }) => {
+const Modal = ({ isOpen, onClose, children,noclose,fullwidth }) => {
     
     const clickToClose=()=>{
         if(!noclose){
@@ -12,7 +12,7 @@ const Modal = ({ isOpen, onClose, children,noclose }) => {
     <>
       {isOpen && (
         <div className="overlay" onClick={clickToClose}>
-          <div className="content" onClick={(e) => e.stopPropagation()}>
+          <div className="content" onClick={(e) => e.stopPropagation()} style={{width:fullwidth ? "100%":"50%",height:fullwidth ? "100vh":"80%"}}>
             <span className="close-button" onClick={onClose}>
               &times;
             </span>

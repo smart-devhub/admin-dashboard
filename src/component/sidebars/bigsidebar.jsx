@@ -5,8 +5,12 @@ import './sidebar.css'
 import { menuItems } from './menuitems'
 import { ModeContext } from '../../context/context'
 import { useWindowSize } from 'react-use'
+import Typography from '../common/Typography'
+import Modal from '../common/Modal'
+import HelpForm from '../common/HelpForm'
 
 const Bigsidebar = () => {
+   const {isHelpOpen,toggleHelp}=useContext(ModeContext)
     const navigate = useNavigate()
     const {width}=useWindowSize()
     const {toggleDrawer}=useContext(ModeContext)
@@ -18,6 +22,9 @@ const Bigsidebar = () => {
     }
 
     const handleNavigate = (x) => {
+        if(x.name==="Help"){
+            toggleHelp()
+        }
         if (x.name === "Log Out") {
             navigate("/auth/login")
         }
@@ -27,8 +34,10 @@ const Bigsidebar = () => {
         }
        
     }
+    const portal="Tech Portal"
 
     return (
+        <>
         <ul className='list'>
             <img
                 className="mx-auto w-24"
@@ -36,6 +45,9 @@ const Bigsidebar = () => {
                 alt="logo"
                 
             />
+            <div className='w-full flex justify-center py-5'>
+            <Typography text={portal} fontSize={23} />
+            </div>
             {menuItems.map(x => (
                 <div key={x.path} className='listItem' onClick={() => handleNavigate(x)}>
                     <span style={{ display: "flex", justifyContent: "center", alignItems: "center", marginLeft: "12px" }}>{x.icon}</span>
@@ -44,6 +56,11 @@ const Bigsidebar = () => {
             ))}
 
         </ul>
+         <Modal isOpen={isHelpOpen} onClose={toggleHelp} noclose >
+        <HelpForm/>
+      </Modal>
+        </>
+        
     )
 }
 

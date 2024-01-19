@@ -16,7 +16,7 @@ const Dashboard = () => {
   return (
     <div>
       <div className='grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1  gap-2'>
-        <Paper value={500} width={"100%"} height={80} text="Total Wins" onClick={() => setIsModal(prev => !prev)} />
+        <Paper value={500} width={"100%"} height={80} text="Total Wins" />
         <Paper value={"$890"} width={"100%"} height={80} text="Value of Live Proposals" />
         <Paper value={100} width={"100%"} height={80} text="View by Clients" />
         <Paper value={"$34"} width={"100%"} height={80} text="Value of Client Viewed Proposals" />

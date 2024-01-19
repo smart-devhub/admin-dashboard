@@ -25,7 +25,7 @@ const PigeonMap = ({numberOfMarkers }) => {
     return (
         <>
            
-            <Map height={550} defaultCenter={markers[0].location} defaultZoom={8}>
+            <Map height={600} defaultCenter={markers[0].location} defaultZoom={8} >
                 {markers.map((marker) => (
                     <Marker key={marker.id} anchor={marker.location} payload={marker.id}  color="#fd0000" width={30} />
                 ))}

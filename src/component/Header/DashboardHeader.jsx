@@ -22,7 +22,7 @@ const DashboardHeader = () => {
   return (
     <header className='header'>
 
-      {width < 750 && <GiHamburgerMenu fontSize={30} color="red" style={{ zIndex: 999 }} onClick={toggleDrawer} />}
+      {width < 750 && <div className='min-h-[30px]'><GiHamburgerMenu fontSize={30} color="red" style={{ zIndex: 999 }} onClick={toggleDrawer} /></div>}
 
       <div className='flex flex-1 justify-between items-center p-3'>
         <Input

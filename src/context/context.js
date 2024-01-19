@@ -5,7 +5,7 @@ export const ModeContext = createContext()
 
 
 const ContextProvider = ({ children }) => {
-
+   const [isHelpOpen,setIsHelpOpen]=useState(false)
     const [isDarkMode, setIsDarkMode] = useState(false)
      const [isOpenDrawer,setIsOpenDrawer] = useState(false)
     useEffect(() => {
@@ -18,11 +18,15 @@ const ContextProvider = ({ children }) => {
     const toggleDrawer=()=>{
         setIsOpenDrawer(prev=>!prev)
     }
+    const toggleHelp=()=>{
+        setIsHelpOpen(prev=>!prev)
+    
+    }
 
 
     return (
 
-        <ModeContext.Provider value={{isDarkMode,toggleDarkMode,isOpenDrawer,toggleDrawer}}>
+        <ModeContext.Provider value={{isDarkMode,toggleDarkMode,isOpenDrawer,toggleDrawer,toggleHelp,isHelpOpen}}>
             {children}
         </ModeContext.Provider>
     )

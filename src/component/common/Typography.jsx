@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ModeContext } from '../../context/context';
 
 const Typography = (props) => {
+     const {isDarkMode}=useContext(ModeContext)
     const {
         text,
         fontSize,
@@ -14,7 +16,7 @@ const Typography = (props) => {
     const textStyle = {
         fontSize: fontSize || '16px',
         fontWeight: fontWeight || 'normal',
-        color: color || 'black',
+        color: isDarkMode ? 'gray' : color || 'black',
         textAlign: textAlign || 'left',
         // Add more styles based on the typography props
     };
