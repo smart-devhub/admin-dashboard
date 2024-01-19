@@ -6,7 +6,7 @@ import { ModeContext } from '../../context/context'
 
 const SmallSidebar = () => {
     const navigate = useNavigate()
-    const {isHelpOpen,toggleHelp}=useContext(ModeContext)
+    const {toggleHelp}=useContext(ModeContext)
     
 
     const handleNavigate = (x)=>{

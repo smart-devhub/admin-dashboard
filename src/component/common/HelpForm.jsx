@@ -1,6 +1,6 @@
 // src/components/HelpForm.js
 import React, { useState } from 'react';
-import Typography from './Typography';
+
 
 const HelpForm = () => {
   const [formData, setFormData] = useState({
