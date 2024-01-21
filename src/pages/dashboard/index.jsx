@@ -10,7 +10,7 @@ import { ModeContext } from '../../context/context'
 
 
 const Dashboard = () => {
-  const [isModal, setIsModal] = React.useState(false)
+
   const {isDarkMode}=useContext(ModeContext)
 
   return (
@@ -46,10 +46,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <Modal isOpen={isModal} onClose={() => setIsModal(prev => !prev)} noclose >
-        <h2>This is a Modal</h2>
-        <p>Modal content goes here.</p>
-      </Modal>
+     
     </div>
   )
 }

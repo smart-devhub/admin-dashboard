@@ -1,5 +1,5 @@
 // src/App.js
-import React from 'react';
+import React,{Suspense} from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css'
@@ -16,8 +16,9 @@ const App = () => {
             path={route.path}
             element={
               <route.layout>
-              
+                  <Suspense>
                   <route.component />
+                  </Suspense>
                 
               </route.layout>
             }

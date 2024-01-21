@@ -1,13 +1,18 @@
-import AuthLayout from "../layouts/AuthLayout";
-import DashboardLayout from "../layouts/DashboardLayout";
-import Register from "../pages/auth/Register";
-import Login from "../pages/auth/login";
-import Calender from "../pages/calender";
-import Dashboard from "../pages/dashboard";
-import MapView from "../pages/mapview";
-import Products from "../pages/product/product";
-import Profile from "../pages/profile";
-import AllUsers from "../pages/users/alluser";
+import  { lazy } from 'react';
+
+const Login = lazy(() => import('../pages/auth/login'));
+const Register = lazy(() => import('../pages/auth/Register'));
+const Dashboard = lazy(() => import('../pages/dashboard'));
+const Products = lazy(() => import('../pages/product/product'));
+const AllUsers = lazy(() => import('../pages/users/alluser'));
+const MapView = lazy(() => import('../pages/mapview'));
+const Calender = lazy(() => import('../pages/calender'));
+const Profile = lazy(() => import('../pages/profile'));
+
+
+import AuthLayout from '../layouts/AuthLayout';
+import DashboardLayout from '../layouts/DashboardLayout'
+
 
 export const routesConfig = [
     {
